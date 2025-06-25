@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar Widget by Granth Jain</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Miltonian&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin:0;
+            padding:0;
+            background-color: #f0f0f0;
+        }
+
+        main {
+            width:100vw;
+            height:100vh;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            gap: 2rem;
+        }
+        h1 {
+            font-family: 'Miltonian', cursive;
+            font-size: 2.5rem;
+            color: #333;
+            margin: 0;
+            transition: transform 0.3s cubic-bezier(.68,-0.55,.27,1.55);
+            cursor:default;
+        }
+        h1:hover {
+            transform: scale(1.048) rotateZ(-3deg)
+        }
+    
+        div.sub {
+            font-family: 'Nanum Pen Script', cursive;
+            font-size: 1.5rem;
+            color: #666;
+        }
+        /* Animated underline on hover */
+        a {
+            color: #007bff;
+            text-decoration: none;
+            position: relative;
+        }
+        a::after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 50%;
+            bottom: -2px;
+            width: 0;
+            height: 2px;
+            background: #007bff;
+            transition: width 0.3s cubic-bezier(.4,0,.2,1), left 0.3s cubic-bezier(.4,0,.2,1);
+            transform: translateX(-50%);
+        }
+        a:hover::after,
+        a:focus::after {
+            width: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            
+        }
+
+    </style>
+    <!-- Custom calendar widget imported from script.js -->
+    
+</head>
+<body>
+    <main>
+        <h1>Calendar Widget</h1>
+        <div class="calendar"></div>
+        <div class="sub">Read the docs <a href="https://github.com/cat-loaf/CalendarWidget/blob/main/README.md">[here]</a>.</div>
+    </main>
+    <script type="module">
+        import CalendarWidget from './calendar-widget.js';
+        const calElem = document.querySelector('.calendar');
+        const calendar = new CalendarWidget(calElem);
+        
+    </script>
+    <script type="module" src="script.js"></script>
+</body>
+</html>
